@@ -1,0 +1,11 @@
+version: '1.0'
+services:
+  go-test-20009: # 容器
+    restart: always # Docker 重启时，容器也重启
+    build: # 构建 Docker 镜像
+      context: ./ # Dockerfile 文件的目录
+      dockerfile: Dockerfile # Dockerfile 文件的名称
+    image: go-test/develop:latest # 镜像名称和版本号
+    container_name: smoke # 容器名称
+    ports: # 宿主机:容器之间映射端口
+      - "20009:8080"
